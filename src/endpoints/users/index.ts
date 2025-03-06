@@ -11,4 +11,12 @@ export const spacesEndpoints = shaped<APIs>()({
       where: { id },
     });
   },
+  "user/create": async (name: string, email: string) => {
+    return prisma.user.create({
+      data: {
+        name,
+        email,
+      },
+    });
+  },
 });

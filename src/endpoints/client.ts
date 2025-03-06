@@ -1,13 +1,14 @@
 import superjson from "superjson";
 
 import type { APIs } from "./types.ts";
+import { Endpoints } from "@/endpoints/index";
 
 export class EndpointClient<T extends APIs> {
   constructor(private url: string) {}
 
   /**
    * Example:
-   * POST localhost:3002/api/endpoints
+   * POST localhost:3000/api/endpoints
    * Content-Type: application/json
    *
    * {
@@ -40,3 +41,9 @@ export class EndpointClient<T extends APIs> {
     return superjson.deserialize<Awaited<ReturnType<T[K]>>>(superJsonResult);
   }
 }
+
+export const endpointClient = new EndpointClient<Endpoints>("/api/endpoints");
+
+// endpointClient.call("user/get", "123");
+// endpointClient.call("user/list");
+// endpointClient.call("user/create", "John Doe", "yuankui@email.com");
