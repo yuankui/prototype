@@ -6,22 +6,28 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio"
   },
   "dependencies": {
+    "@prisma/client": "^6.4.1",
+    "next": "15.2.1",
+    "prisma": "^6.4.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.2.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
-    "@eslint/eslintrc": "^3",
     "eslint-config-prettier": "^10.0.2",
-    "prettier": "^3.5.2"
+    "prettier": "^3.5.2",
+    "typescript": "^5"
   }
 }
