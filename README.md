@@ -107,6 +107,18 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions
 are welcome!
 
+## CI/CD
+
+### GitHub Workflow
+
+This project includes a GitHub workflow that automatically runs on push to main and on pull requests:
+
+- Runs `npm run build` to ensure the project builds successfully
+- Runs `npm run lint` to check for code style issues
+- Runs on Ubuntu with Node.js 20
+
+The workflow configuration is in `.github/workflows/build.yml`.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use
