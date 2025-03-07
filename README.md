@@ -1,5 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [
-`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js + Prisma + Tailwind CSS + TypeScript + ESLint + Prettier
 
 ## Getting Started
 
@@ -9,12 +8,46 @@ First, run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database and Migrations
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically
-optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses Prisma ORM to manage database operations and migrations.
+
+### Generating a New SQL Migration
+
+To generate a new SQL migration after making changes to the Prisma schema:
+
+1. Make your changes to the schema in `prisma/schema.prisma`
+2. Run the following command to generate a new migration:
+
+```bash
+npm run prisma:migrate -- dev --name your_migration_name
+```
+
+Replace `your_migration_name` with a descriptive name for your migration (use snake_case).
+
+3. The migration will be created in the `prisma/migrations` directory with a timestamp prefix
+4. Apply the migration to your development database automatically
+
+### Deploying Migrations to Production
+
+For production environments, use the deployment command which applies migrations without generating development
+artifacts:
+
+```bash
+npm run prisma:deploy
+```
+
+### Other Database Commands
+
+```bash
+# Generate Prisma client after schema changes
+npm run prisma:generate
+
+# Open Prisma Studio for database visualization
+npm run prisma:studio
+```
 
 ## Learn More
 
