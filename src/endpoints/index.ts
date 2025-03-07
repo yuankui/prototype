@@ -8,3 +8,4 @@ export const endpoints = shaped<APIs>()({
 
 export type EndpointKey = keyof typeof endpoints;
 export type Endpoints = typeof endpoints;
+export type ArgOfEndpoint<K extends EndpointKey> = Parameters<Endpoints[K]>;

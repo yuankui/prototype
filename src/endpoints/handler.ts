@@ -3,11 +3,11 @@ import superjson from "superjson";
 import { NextResponse } from "next/server";
 
 export const endpointHandler = async (req: Request) => {
-  const { endpoint, params }: { endpoint: string; params: any[] } = await req.json();
+  const { endpoint, params }: { endpoint: EndpointKey; params: any[] } = await req.json();
 
   try {
     // Get the endpoint function from our API definition
-    const endpointFn = endpoints[endpoint as EndpointKey];
+    const endpointFn: any = endpoints[endpoint];
     if (!endpointFn) {
       return NextResponse.json(
         { error: `Endpoint ${endpoint} not found` },
@@ -18,7 +18,7 @@ export const endpointHandler = async (req: Request) => {
     }
 
     // Execute the endpoint with the provided input
-    const result = await endpointFn(...(params as [any]));
+    const result = await endpointFn(...params);
 
     const serialized = superjson.serialize(result);
     return NextResponse.json(serialized);
