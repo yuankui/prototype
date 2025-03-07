@@ -1,9 +1,9 @@
 import { APIs } from "./types";
-import { spacesEndpoints } from "./users";
+import { userEndpoints } from "./users";
 import { shaped } from "@/common/shaped";
 
 export const endpoints = shaped<APIs>()({
-  ...spacesEndpoints,
+  ...userEndpoints,
 });
 
 export type EndpointKey = keyof typeof endpoints;

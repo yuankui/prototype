@@ -1,22 +1,9 @@
 import { APIs } from "../types";
-import { prisma } from "@/app/api/db";
 import { shaped } from "@/common/shaped";
+import { createUser, getUserById, getUsers } from "@/endpoints/users/services/user.service";
 
-export const spacesEndpoints = shaped<APIs>()({
-  "user/list": async () => {
-    return prisma.user.findMany();
-  },
-  "user/get": async (id: string) => {
-    return prisma.user.findUnique({
-      where: { id },
-    });
-  },
-  "user/create": async (name: string, email: string) => {
-    return prisma.user.create({
-      data: {
-        name,
-        email,
-      },
-    });
-  },
+export const userEndpoints = shaped<APIs>()({
+  "user/list": getUsers,
+  "user/get": getUserById,
+  "user/create": createUser,
 });
