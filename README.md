@@ -1,4 +1,4 @@
-# Next.js + Prisma + Tailwind CSS + TypeScript + ESLint + Prettier
+# Next.js + Prisma + PostgreSQL Prototype
 
 ## Getting Started
 
@@ -17,18 +17,21 @@ npm install
 
 ### Start the PostgreSQL container
 
+```bash
 docker-compose up -d postgres
+```
 
 This will start a PostgreSQL container using the docker-compose.yml configuration in the project, with the following
 settings:
-• Username: postgres
-• Password: postgres
-• Database Name: prototype
-• Port: 5432
+
+- Username: `postgres`
+- Password: `postgres`
+- Database Name: `prototype`
+- Port: `5432`
 
 ### Configure Environment Variables
 
-Create a .env file and set the database connection string
+Create a `.env` file and set the database connection string, or copy the example provided: .env.sample
 
 ```bash
 echo "DATABASE_URL=\"postgresql://postgres:postgres@localhost:5432/prototype\"" > .env
