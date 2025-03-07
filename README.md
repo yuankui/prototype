@@ -2,13 +2,61 @@
 
 ## Getting Started
 
-First, run the development server:
+Here are the complete steps from git clone to starting the project:
+
+### Clone the Repository
+
+git clone <repository-url>
+cd prototype
+
+### Install Dependencies
+
+npm install
+
+### Set Up PostgreSQL Database (Using Docker)
+
+### Start the PostgreSQL container
+
+docker-compose up -d postgres
+
+This will start a PostgreSQL container using the docker-compose.yml configuration in the project, with the following
+settings:
+• Username: postgres
+• Password: postgres
+• Database Name: prototype
+• Port: 5432
+
+### Configure Environment Variables
+
+Create a .env file and set the database connection string
+
+```bash
+echo "DATABASE_URL=\"postgresql://postgres:postgres@localhost:5432/prototype\"" > .env
+```
+
+### Initialize the Database
+
+#### Generate the Prisma client
+
+```
+npm run prisma:generate
+```
+
+#### Run database migrations
+
+```
+npm run prisma:migrate
+```
+
+### Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+### Access the Application
+
+Open your browser and go to http://localhost:3000 to view the application.
 
 ## Database and Migrations
 
