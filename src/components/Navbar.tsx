@@ -2,28 +2,30 @@
 
 import Link from "next/link";
 import { useAuth } from "@/providers/auth-provider";
+import styles from "@/styles/layout.module.css";
+import btnStyles from "@/styles/buttons.module.css";
 
 export function Navbar() {
   const { user, logout, loading } = useAuth();
 
   return (
-    <nav className="bg-white shadow-md py-4">
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-blue-600">
+    <nav className={styles.navbar}>
+      <div className={`${styles.navbarContainer} ${styles.appContainer}`}>
+        <Link href="/" className={styles.navbarLogo}>
           Prototype
         </Link>
         
-        <div className="flex items-center space-x-4">
+        <div className={styles.navbarActions}>
           {loading ? (
             <div>Loading...</div>
           ) : user ? (
             <>
-              <span className="text-gray-700">
+              <span className={styles.userInfo}>
                 Hello, {user.name || user.email}
               </span>
               <button
                 onClick={() => logout()}
-                className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
+                className={`${btnStyles.btn} ${btnStyles.btnDanger}`}
               >
                 Logout
               </button>
@@ -31,7 +33,7 @@ export function Navbar() {
           ) : (
             <Link
               href="/auth"
-              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+              className={`${btnStyles.btn} ${btnStyles.btnPrimary}`}
             >
               Login
             </Link>

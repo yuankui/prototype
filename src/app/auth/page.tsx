@@ -5,6 +5,7 @@ import { useAuth } from "@/providers/auth-provider";
 import { LoginForm } from "@/components/LoginForm";
 import { RegisterForm } from "@/components/RegisterForm";
 import { redirect } from "next/navigation";
+import styles from "@/styles/auth.module.css";
 
 export default function AuthPage() {
   const { user } = useAuth();
@@ -16,24 +17,16 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="max-w-md mx-auto mt-10">
-      <div className="flex mb-6">
+    <div className={styles.authContainer}>
+      <div className={styles.tabContainer}>
         <button
-          className={`flex-1 py-2 ${
-            mode === "login" 
-              ? "bg-blue-500 text-white" 
-              : "bg-gray-200 hover:bg-gray-300"
-          }`}
+          className={`${styles.tab} ${mode === "login" ? styles.activeTab : styles.inactiveTab}`}
           onClick={() => setMode("login")}
         >
           Login
         </button>
         <button
-          className={`flex-1 py-2 ${
-            mode === "register" 
-              ? "bg-blue-500 text-white" 
-              : "bg-gray-200 hover:bg-gray-300"
-          }`}
+          className={`${styles.tab} ${mode === "register" ? styles.activeTab : styles.inactiveTab}`}
           onClick={() => setMode("register")}
         >
           Register

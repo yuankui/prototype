@@ -1,0 +1,51 @@
+/* Buttons */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btnPrimary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btnPrimary:hover {
+  background-color: #2563eb;
+}
+
+.btnPrimary:active {
+  background-color: #1d4ed8;
+}
+
+.btnDanger {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btnDanger:hover {
+  background-color: #dc2626;
+}
+
+.btnDanger:active {
+  background-color: #b91c1c;
+}
+
+.btnSecondary {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.btnSecondary:hover {
+  background-color: #d1d5db;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

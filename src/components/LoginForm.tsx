@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useAuth } from "@/providers/auth-provider";
+import styles from "@/styles/auth.module.css";
+import btnStyles from "@/styles/buttons.module.css";
 
 export function LoginForm() {
   const { login, loading } = useAuth();
@@ -21,38 +23,38 @@ export function LoginForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6">Login</h2>
+    <div className={styles.formContainer}>
+      <h2 className={styles.formTitle}>Login</h2>
       
       {error && (
-        <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">
+        <div className={styles.formError}>
           {error}
         </div>
       )}
       
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2" htmlFor="email">
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel} htmlFor="email">
             Email
           </label>
           <input
             id="email"
             type="email"
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={styles.formInput}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
         
-        <div className="mb-6">
-          <label className="block text-gray-700 mb-2" htmlFor="password">
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel} htmlFor="password">
             Password
           </label>
           <input
             id="password"
             type="password"
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={styles.formInput}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -62,7 +64,7 @@ export function LoginForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 disabled:opacity-50"
+          className={`${btnStyles.btn} ${btnStyles.btnPrimary} ${styles.formSubmit}`}
         >
           {loading ? "Logging in..." : "Login"}
         </button>

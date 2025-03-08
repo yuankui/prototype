@@ -1,0 +1,56 @@
+/* Layout */
+.appContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.pageContent {
+  padding: 2rem 0;
+}
+
+/* Navigation */
+.navbar {
+  background-color: white;
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbarLogo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #3b82f6;
+}
+
+.navbarActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userInfo {
+  color: #111827;
+}
+
+/* Welcome page */
+.welcome {
+  text-align: center;
+  padding: 2.5rem 0;
+}
+
+.welcomeTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.welcomeMessage {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
