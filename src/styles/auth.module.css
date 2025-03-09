@@ -1,0 +1,84 @@
+/* Auth container */
+.authContainer {
+  margin-top: 2.5rem;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tabContainer {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.5rem 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.activeTab {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.inactiveTab {
+  background-color: #f3f4f6;
+}
+
+.inactiveTab:hover {
+  background-color: #d1d5db;
+}
+
+/* Form styles */
+.formContainer {
+  background-color: white;
+  border-radius: 0.25rem;
+  padding: 1.5rem;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.formTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.formError {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.formSubmit {
+  margin-top: 1rem;
+  width: 100%;
+}
