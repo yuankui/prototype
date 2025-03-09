@@ -14,15 +14,13 @@ export function Navbar() {
         <Link href="/" className={styles.navbarLogo}>
           Prototype
         </Link>
-        
+
         <div className={styles.navbarActions}>
           {loading ? (
             <div>Loading...</div>
           ) : user ? (
             <>
-              <span className={styles.userInfo}>
-                Hello, {user.name || user.email}
-              </span>
+              <span className={styles.userInfo}>Hello, {user.name || user.email}</span>
               <button
                 onClick={() => logout()}
                 className={`${btnStyles.btn} ${btnStyles.btnDanger}`}
@@ -31,10 +29,7 @@ export function Navbar() {
               </button>
             </>
           ) : (
-            <Link
-              href="/auth"
-              className={`${btnStyles.btn} ${btnStyles.btnPrimary}`}
-            >
+            <Link href="/auth" className={`${btnStyles.btn} ${btnStyles.btnPrimary}`}>
               Login
             </Link>
           )}

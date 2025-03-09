@@ -14,7 +14,7 @@ export function LoginForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    
+
     try {
       await login(email, password);
     } catch (err) {
@@ -25,13 +25,9 @@ export function LoginForm() {
   return (
     <div className={styles.formContainer}>
       <h2 className={styles.formTitle}>Login</h2>
-      
-      {error && (
-        <div className={styles.formError}>
-          {error}
-        </div>
-      )}
-      
+
+      {error && <div className={styles.formError}>{error}</div>}
+
       <form onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
           <label className={styles.formLabel} htmlFor="email">
@@ -46,7 +42,7 @@ export function LoginForm() {
             required
           />
         </div>
-        
+
         <div className={styles.formGroup}>
           <label className={styles.formLabel} htmlFor="password">
             Password
@@ -60,7 +56,7 @@ export function LoginForm() {
             required
           />
         </div>
-        
+
         <button
           type="submit"
           disabled={loading}

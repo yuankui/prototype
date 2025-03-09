@@ -20,11 +20,11 @@ export const getUserByEmail = async (email: string) => {
 
 export const createUser = async (name: string, email: string, password?: string) => {
   const data: any = { name, email };
-  
+
   if (password) {
     data.password = await bcrypt.hash(password, 10);
   }
-  
+
   return prisma.user.create({ data });
 };
 
@@ -36,7 +36,7 @@ export const validatePassword = async (user: { password: string | null }, passwo
 export const createSession = async (userId: string) => {
   const expires = new Date();
   expires.setDate(expires.getDate() + 7); // 7 days from now
-  
+
   return prisma.session.create({
     data: {
       sessionToken: randomUUID(),

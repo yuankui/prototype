@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { 
-  getUserByEmail, 
-  validatePassword, 
-  createSession 
+import {
+  getUserByEmail,
+  validatePassword,
+  createSession,
 } from "@/endpoints/users/services/user.service";
 import { cookies } from "next/headers";
 
@@ -11,33 +11,24 @@ export async function POST(request: NextRequest) {
     const { email, password } = await request.json();
 
     if (!email || !password) {
-      return NextResponse.json(
-        { error: "Email and password are required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Email and password are required" }, { status: 400 });
     }
 
     const user = await getUserByEmail(email);
     if (!user) {
-      return NextResponse.json(
-        { error: "Invalid credentials" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
     }
 
     const isValidPassword = await validatePassword(user, password);
     if (!isValidPassword) {
-      return NextResponse.json(
-        { error: "Invalid credentials" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
     }
 
     // Create a session
     const session = await createSession(user.id);
-    
+
     // Set the session cookie
-    cookies().set({
+    (await cookies()).set({
       name: "session",
       value: session.sessionToken,
       httpOnly: true,
@@ -56,9 +47,6 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Login error:", error);
-    return NextResponse.json(
-      { error: "Failed to login" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to login" }, { status: 500 });
   }
 }

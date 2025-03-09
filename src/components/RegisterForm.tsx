@@ -15,7 +15,7 @@ export function RegisterForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    
+
     try {
       await register(name, email, password);
     } catch (err) {
@@ -26,13 +26,9 @@ export function RegisterForm() {
   return (
     <div className={styles.formContainer}>
       <h2 className={styles.formTitle}>Register</h2>
-      
-      {error && (
-        <div className={styles.formError}>
-          {error}
-        </div>
-      )}
-      
+
+      {error && <div className={styles.formError}>{error}</div>}
+
       <form onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
           <label className={styles.formLabel} htmlFor="name">
@@ -46,7 +42,7 @@ export function RegisterForm() {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        
+
         <div className={styles.formGroup}>
           <label className={styles.formLabel} htmlFor="email">
             Email
@@ -60,7 +56,7 @@ export function RegisterForm() {
             required
           />
         </div>
-        
+
         <div className={styles.formGroup}>
           <label className={styles.formLabel} htmlFor="password">
             Password
@@ -74,7 +70,7 @@ export function RegisterForm() {
             required
           />
         </div>
-        
+
         <button
           type="submit"
           disabled={loading}
